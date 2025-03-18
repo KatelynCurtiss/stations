@@ -32,7 +32,7 @@ def draw_circle():
 
 def init_game ():
     pygame.init()
-    screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT)) # Use constants from config
+    screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT)) 
     pygame.display.set_caption(TITLE)
     return screen 
 
@@ -44,6 +44,23 @@ def handle_events ():
             if event.key == pygame.K_ESCAPE:
                 return False
     return True
+
+def handle_events(x1, y1):
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            return x1, y1, False
+        
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_UP]:
+        y1 -= 10
+    if keys[pygame.K_DOWN]:
+            y1 += 10
+    if keys[pygame.K_LEFT]:
+            x1 -= 10
+    if keys[pygame.K_RIGHT]:
+            x1 += 10
+        
+    return x1, y1, True
 
 
    
