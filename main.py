@@ -28,6 +28,8 @@ def main():
         x1, y1, running = handle_events(x1, y1)
         screen.fill(PURPLE)
     pygame.display.update()
+
+    pressed = pygame.key.get_pressed()
        
              
    
